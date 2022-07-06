@@ -183,6 +183,5 @@ public class ItemServlet extends HttpServlet {
             writer.print(objectBuilder.build());
         }
     }
-    }
 }
 

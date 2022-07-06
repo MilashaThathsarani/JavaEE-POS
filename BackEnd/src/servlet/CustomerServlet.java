@@ -31,6 +31,8 @@ public class CustomerServlet extends HttpServlet {
             Connection connection = ds.getConnection();
             PrintWriter writer = resp.getWriter();
 
+            resp.addHeader("Access-Control-Allow-Origin","*");
+
             switch (option) {
                 case "SEARCH":
                     //write the code for customer search
@@ -75,6 +77,8 @@ public class CustomerServlet extends HttpServlet {
         String customerAddress = req.getParameter("customerAddress");
         String salary = req.getParameter("CustomerSalary");
 
+        resp.addHeader("Access-Control-Allow-Origin","*");
+
         PrintWriter writer = resp.getWriter();
         resp.setContentType("application/json");
         try {
@@ -117,6 +121,8 @@ public class CustomerServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
         resp.setContentType("application/json");
 
+        resp.addHeader("Access-Control-Allow-Origin","*");
+
         try {
             Connection connection = ds.getConnection();
             PreparedStatement pstm = connection.prepareStatement("Update Customer set name=?,address=?,salary=? where id=?");
@@ -153,6 +159,8 @@ public class CustomerServlet extends HttpServlet {
         String customerID = req.getParameter("CusID");
         PrintWriter writer = resp.getWriter();
         resp.setContentType("application/json");
+
+        resp.addHeader("Access-Control-Allow-Origin","*");
 
         try {
             Connection connection = ds.getConnection();
